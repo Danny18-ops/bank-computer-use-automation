@@ -1,0 +1,298 @@
+{
+  "goal": "Search for member 10001, open a sub-account for them with account type Savings and an initial deposit of 50, and reach the confirmation screen showing the reference number.",
+  "start_url": "http://localhost:5050/login",
+  "history": [
+    {
+      "step": 1,
+      "page_state": {
+        "url": "http://localhost:5050/login",
+        "visible_text_summary": "MockBank Internal System\nLogin\nUsername:\nPassword:\nLogin",
+        "inputs": [
+          {
+            "label": "Username:",
+            "type": "text"
+          },
+          {
+            "label": "Password:",
+            "type": "password"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Login"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "type",
+        "target_text": "Username:",
+        "value": "testuser",
+        "reasoning": "I need to enter a username to log in."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_1.png"
+    },
+    {
+      "step": 2,
+      "page_state": {
+        "url": "http://localhost:5050/login",
+        "visible_text_summary": "MockBank Internal System\nLogin\nUsername:\nPassword:\nLogin",
+        "inputs": [
+          {
+            "label": "Username:",
+            "type": "text"
+          },
+          {
+            "label": "Password:",
+            "type": "password"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Login"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "type",
+        "target_text": "Password:",
+        "value": "testpass",
+        "reasoning": "I need to enter the password to log in and proceed with the goal."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_2.png"
+    },
+    {
+      "step": 3,
+      "page_state": {
+        "url": "http://localhost:5050/login",
+        "visible_text_summary": "MockBank Internal System\nLogin\nUsername:\nPassword:\nLogin",
+        "inputs": [
+          {
+            "label": "Username:",
+            "type": "text"
+          },
+          {
+            "label": "Password:",
+            "type": "password"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Login"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "click",
+        "target_text": "Login",
+        "reasoning": "Clicking the Login button is necessary to access the main interface of the bank system for account management."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_3.png"
+    },
+    {
+      "step": 4,
+      "page_state": {
+        "url": "http://localhost:5050/search",
+        "visible_text_summary": "MockBank Internal System\nMember Search\nMember ID:\nSearch",
+        "inputs": [
+          {
+            "label": "Member ID:",
+            "type": "text"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Search"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "type",
+        "target_text": "Member ID:",
+        "value": "10001",
+        "reasoning": "I need to enter the member ID to search for the member."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_4.png"
+    },
+    {
+      "step": 5,
+      "page_state": {
+        "url": "http://localhost:5050/search",
+        "visible_text_summary": "MockBank Internal System\nMember Search\nMember ID:\nSearch",
+        "inputs": [
+          {
+            "label": "Member ID:",
+            "type": "text"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Search"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "click",
+        "target_text": "Search",
+        "reasoning": "I need to search for the member using the entered Member ID."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_5.png"
+    },
+    {
+      "step": 6,
+      "page_state": {
+        "url": "http://localhost:5050/member/10001",
+        "visible_text_summary": "MockBank Internal System\nMember Detail\nMember ID\t10001\nName\tAlice Johnson\nSavings Balance\t$4200.50\nOpen Sub-Account",
+        "inputs": [],
+        "buttons": [
+          {
+            "text": "Open Sub-Account"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "click",
+        "target_text": "Open Sub-Account",
+        "reasoning": "This action will allow me to open a sub-account for the member."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_6.png"
+    },
+    {
+      "step": 7,
+      "page_state": {
+        "url": "http://localhost:5050/new-subaccount/10001?",
+        "visible_text_summary": "MockBank Internal System\nOpen Sub-Account for Alice Johnson (ID 10001)\nAccount Type:\nChecking\nSavings\nInitial Deposit Amount:\nSubmit",
+        "inputs": [
+          {
+            "label": "Account Type:",
+            "type": "select",
+            "options": [
+              "Checking",
+              "Savings"
+            ]
+          },
+          {
+            "label": "Initial Deposit Amount:",
+            "type": "number"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Submit"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "select",
+        "target_text": "Account Type:",
+        "value": "Savings",
+        "reasoning": "I need to select the Savings account type for the new sub-account."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_7.png"
+    },
+    {
+      "step": 8,
+      "page_state": {
+        "url": "http://localhost:5050/new-subaccount/10001?",
+        "visible_text_summary": "MockBank Internal System\nOpen Sub-Account for Alice Johnson (ID 10001)\nAccount Type:\nChecking\nSavings\nInitial Deposit Amount:\nSubmit",
+        "inputs": [
+          {
+            "label": "Account Type:",
+            "type": "select",
+            "options": [
+              "Checking",
+              "Savings"
+            ]
+          },
+          {
+            "label": "Initial Deposit Amount:",
+            "type": "number"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Submit"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "type",
+        "target_text": "Initial Deposit Amount:",
+        "value": "50",
+        "reasoning": "I need to enter the initial deposit amount to proceed with opening the sub-account."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_8.png"
+    },
+    {
+      "step": 9,
+      "page_state": {
+        "url": "http://localhost:5050/new-subaccount/10001?",
+        "visible_text_summary": "MockBank Internal System\nOpen Sub-Account for Alice Johnson (ID 10001)\nAccount Type:\nChecking\nSavings\nInitial Deposit Amount:\nSubmit",
+        "inputs": [
+          {
+            "label": "Account Type:",
+            "type": "select",
+            "options": [
+              "Checking",
+              "Savings"
+            ]
+          },
+          {
+            "label": "Initial Deposit Amount:",
+            "type": "number"
+          }
+        ],
+        "buttons": [
+          {
+            "text": "Submit"
+          }
+        ],
+        "links": []
+      },
+      "decision": {
+        "action": "click",
+        "target_text": "Submit",
+        "reasoning": "I have filled in all the required fields, so I need to submit the form to open the sub-account."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_9.png"
+    },
+    {
+      "step": 10,
+      "page_state": {
+        "url": "http://localhost:5050/confirmation",
+        "visible_text_summary": "MockBank Internal System\nConfirmation\nSub-account created successfully.\nReference Number\tREF-076632\nMember\tAlice Johnson (ID 10001)\nAccount Type\tSavings\nInitial Deposit\t$50.00",
+        "inputs": [],
+        "buttons": [],
+        "links": []
+      },
+      "decision": {
+        "action": "done",
+        "reasoning": "The confirmation screen indicates that the sub-account has been created successfully with the required details."
+      },
+      "result": "success",
+      "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414/step_10.png"
+    }
+  ],
+  "outcome": {
+    "status": "success",
+    "reason": "The confirmation screen indicates that the sub-account has been created successfully with the required details.",
+    "steps_taken": 10
+  },
+  "evidence_dir": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/discovery_run_20260917_003414"
+}

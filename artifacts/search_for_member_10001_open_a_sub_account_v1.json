@@ -1,0 +1,175 @@
+{
+  "artifact_id": "search_for_member_10001_open_a_sub_account",
+  "version": 1,
+  "description": "Search for member 10001, open a sub-account for them with account type Savings and an initial deposit of 50, and reach the confirmation screen showing the reference number.",
+  "target_app": "MockBank Internal System",
+  "created_from_discovery_run": "discovery_run_20260917_003414",
+  "inputs": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "member_id": {
+      "type": "string",
+      "required": true
+    },
+    "account_type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "Checking",
+        "Savings"
+      ]
+    },
+    "initial_deposit": {
+      "type": "number",
+      "required": true,
+      "constraints": {
+        "min": 0.01
+      }
+    }
+  },
+  "steps": [
+    {
+      "step_id": 1,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Username:"
+        }
+      },
+      "value_from_input": "username",
+      "description": "I need to enter a username to log in."
+    },
+    {
+      "step_id": 2,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Password:"
+        }
+      },
+      "value_from_input": "password",
+      "description": "I need to enter the password to log in and proceed with the goal."
+    },
+    {
+      "step_id": 3,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Login"
+        }
+      },
+      "description": "Clicking the Login button is necessary to access the main interface of the bank system for account management."
+    },
+    {
+      "step_id": 4,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Member ID:"
+        }
+      },
+      "value_from_input": "member_id",
+      "description": "I need to enter the member ID to search for the member."
+    },
+    {
+      "step_id": 5,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Search"
+        }
+      },
+      "description": "I need to search for the member using the entered Member ID."
+    },
+    {
+      "step_id": 6,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Member Detail"
+      },
+      "on_fail": "business_outcome:member_not_found",
+      "description": "Verify search succeeded (expected 'Member Detail')"
+    },
+    {
+      "step_id": 7,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Open Sub-Account"
+        }
+      },
+      "description": "This action will allow me to open a sub-account for the member."
+    },
+    {
+      "step_id": 8,
+      "action": "select",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Account Type:"
+        }
+      },
+      "value_from_input": "account_type",
+      "description": "I need to select the Savings account type for the new sub-account."
+    },
+    {
+      "step_id": 9,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Initial Deposit Amount:"
+        }
+      },
+      "value_from_input": "initial_deposit",
+      "description": "I need to enter the initial deposit amount to proceed with opening the sub-account."
+    },
+    {
+      "step_id": 10,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Submit"
+        }
+      },
+      "description": "I have filled in all the required fields, so I need to submit the form to open the sub-account."
+    },
+    {
+      "step_id": 11,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Sub-account created successfully."
+      },
+      "on_fail": "hard_failure",
+      "description": "Verify the discovery run's final success state"
+    }
+  ],
+  "outputs": {
+    "reference_number": {
+      "type": "string",
+      "extract_from": {
+        "strategy": "table_row_position",
+        "label": "Reference Number"
+      }
+    }
+  },
+  "success_condition": {
+    "type": "text_present",
+    "value": "Sub-account created successfully."
+  }
+}

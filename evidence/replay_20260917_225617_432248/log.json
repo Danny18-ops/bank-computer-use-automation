@@ -1,0 +1,96 @@
+{
+  "artifact_path": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/artifacts/search_for_member_10001_open_a_sub_account_v1.json",
+  "artifact_id": "search_for_member_10001_open_a_sub_account",
+  "inputs": {
+    "username": "tester",
+    "password": "[REDACTED]",
+    "member_id": "10003",
+    "account_type": "Savings",
+    "initial_deposit": 100,
+    "confirmed": true
+  },
+  "base_url": "http://localhost:5050",
+  "steps": [
+    {
+      "step_id": 1,
+      "action": "type",
+      "locator": "primary=visible_text:'Username:'",
+      "success": true
+    },
+    {
+      "step_id": 2,
+      "action": "type",
+      "locator": "primary=visible_text:'Password:'",
+      "success": true
+    },
+    {
+      "step_id": 3,
+      "action": "click",
+      "locator": "primary=visible_text:'Login'",
+      "success": true
+    },
+    {
+      "step_id": 4,
+      "action": "type",
+      "locator": "primary=visible_text:'Member ID:'",
+      "success": true
+    },
+    {
+      "step_id": 5,
+      "action": "click",
+      "locator": "primary=visible_text:'Search'",
+      "success": true
+    },
+    {
+      "step_id": 6,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Member Detail"
+      },
+      "success": true
+    },
+    {
+      "step_id": 7,
+      "action": "click",
+      "locator": "primary=visible_text:'Open Sub-Account'",
+      "success": true
+    },
+    {
+      "step_id": 8,
+      "action": "select",
+      "locator": "primary=visible_text:'Account Type:'",
+      "success": true
+    },
+    {
+      "step_id": 9,
+      "action": "type",
+      "locator": "primary=visible_text:'Initial Deposit Amount:'",
+      "success": true
+    },
+    {
+      "step_id": 10,
+      "action": "click",
+      "locator": "primary=visible_text:'Submit'",
+      "success": true
+    },
+    {
+      "step_id": 11,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Sub-account created successfully."
+      },
+      "success": true
+    }
+  ],
+  "result": {
+    "status": "success",
+    "outputs": {
+      "reference_number": "REF-451858"
+    },
+    "steps_completed": 11,
+    "evidence_dir": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/replay_20260917_225617_432248",
+    "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/replay_20260917_225617_432248/final.png"
+  }
+}

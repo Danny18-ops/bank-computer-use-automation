@@ -1,0 +1,14 @@
+{
+  "timestamp": "20260918_075740_231705",
+  "goal": "Escalation demo: broken locator triggers a real human intervention",
+  "step_id": 5,
+  "reason": "locator_not_found",
+  "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/interventions/20260918_075740_231705/screenshot.png",
+  "context": {
+    "action": "click",
+    "locator": "primary=visible_text:'ThisButtonDoesNotExist'"
+  },
+  "status": "resumed",
+  "resumed_at": "20260918_075740_274792",
+  "notes": "Reviewed the screenshot: the button genuinely is not on this page, confirming this is a real automation gap."
+}

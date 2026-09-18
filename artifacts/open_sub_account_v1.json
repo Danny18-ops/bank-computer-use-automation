@@ -1,0 +1,187 @@
+{
+  "artifact_id": "open_sub_account_v1",
+  "version": 1,
+  "description": "Opens a new sub-account (Checking or Savings) for an existing MockBank member, given a member ID, account type, and initial deposit amount.",
+  "target_app": "MockBank",
+  "created_from_discovery_run": "discovery_run_2026_09_10_001",
+  "inputs": {
+    "username": {
+      "type": "string",
+      "required": true
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "member_id": {
+      "type": "string",
+      "required": true
+    },
+    "account_type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "Checking",
+        "Savings"
+      ]
+    },
+    "initial_deposit": {
+      "type": "number",
+      "required": true,
+      "constraints": {
+        "min": 0.01
+      }
+    }
+  },
+  "steps": [
+    {
+      "step_id": 1,
+      "action": "navigate",
+      "target": "/login",
+      "description": "Go to the login page"
+    },
+    {
+      "step_id": 2,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "label_text",
+          "value": "Username:"
+        }
+      },
+      "value_from_input": "username",
+      "description": "Type the username into the login form"
+    },
+    {
+      "step_id": 3,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "label_text",
+          "value": "Password:"
+        }
+      },
+      "value_from_input": "password",
+      "description": "Type the password into the login form"
+    },
+    {
+      "step_id": 4,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Login"
+        }
+      },
+      "description": "Click the Login button"
+    },
+    {
+      "step_id": 5,
+      "action": "navigate",
+      "target": "/search",
+      "description": "Go to member search"
+    },
+    {
+      "step_id": 6,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "label_text",
+          "value": "Member ID:"
+        }
+      },
+      "value_from_input": "member_id",
+      "description": "Type the member ID into the search field"
+    },
+    {
+      "step_id": 7,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Search"
+        }
+      },
+      "description": "Click the Search button"
+    },
+    {
+      "step_id": 8,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Member Detail"
+      },
+      "on_fail": "business_outcome:member_not_found",
+      "description": "Confirm the member detail page loaded"
+    },
+    {
+      "step_id": 9,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Open Sub-Account"
+        }
+      },
+      "description": "Click Open Sub-Account"
+    },
+    {
+      "step_id": 10,
+      "action": "select",
+      "locator": {
+        "primary": {
+          "strategy": "label_text",
+          "value": "Account Type:"
+        }
+      },
+      "value_from_input": "account_type",
+      "description": "Select the account type"
+    },
+    {
+      "step_id": 11,
+      "action": "type",
+      "locator": {
+        "primary": {
+          "strategy": "label_text",
+          "value": "Initial Deposit Amount:"
+        }
+      },
+      "value_from_input": "initial_deposit",
+      "description": "Type the initial deposit amount"
+    },
+    {
+      "step_id": 12,
+      "action": "click",
+      "locator": {
+        "primary": {
+          "strategy": "visible_text",
+          "value": "Submit"
+        }
+      },
+      "description": "Click Submit"
+    },
+    {
+      "step_id": 13,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Sub-account created successfully"
+      },
+      "on_fail": "hard_failure",
+      "description": "Confirm the confirmation page shows success"
+    }
+  ],
+  "outputs": {
+    "reference_number": {
+      "type": "string",
+      "extract_from": {
+        "strategy": "table_row_position",
+        "label": "Reference Number"
+      }
+    }
+  },
+  "success_condition": {
+    "type": "text_present",
+    "value": "Sub-account created successfully"
+  }
+}

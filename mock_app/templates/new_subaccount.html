@@ -1,0 +1,33 @@
+<html>
+<head><title>MockBank - Open Sub-Account</title></head>
+<body>
+<h1>MockBank Internal System</h1>
+<h2>Open Sub-Account for {{ member.name }} (ID {{ member_id }})</h2>
+{% if error %}
+<table border="1" cellpadding="4" cellspacing="0">
+<tr><td>{{ error }}</td></tr>
+</table>
+<br>
+{% endif %}
+<form method="POST" action="/new-subaccount/{{ member_id }}">
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<td>Account Type:</td>
+<td>
+<select name="account_type">
+<option value="Checking" {% if account_type == "Checking" %}selected{% endif %}>Checking</option>
+<option value="Savings" {% if account_type == "Savings" %}selected{% endif %}>Savings</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Initial Deposit Amount:</td>
+<td><input type="number" step="0.01" name="deposit" value="{{ deposit }}"></td>
+</tr>
+<tr>
+<td colspan="2"><button type="submit">Submit</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

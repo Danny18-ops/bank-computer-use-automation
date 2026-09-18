@@ -1,0 +1,60 @@
+{
+  "artifact_path": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/artifacts/search_for_member_10001_open_a_sub_account_v1.json",
+  "artifact_id": "search_for_member_10001_open_a_sub_account",
+  "inputs": {
+    "username": "tester",
+    "password": "[REDACTED]",
+    "member_id": "99999",
+    "account_type": "Checking",
+    "initial_deposit": 100
+  },
+  "base_url": "http://localhost:5050",
+  "steps": [
+    {
+      "step_id": 1,
+      "action": "type",
+      "locator": "primary=visible_text:'Username:'",
+      "success": true
+    },
+    {
+      "step_id": 2,
+      "action": "type",
+      "locator": "primary=visible_text:'Password:'",
+      "success": true
+    },
+    {
+      "step_id": 3,
+      "action": "click",
+      "locator": "primary=visible_text:'Login'",
+      "success": true
+    },
+    {
+      "step_id": 4,
+      "action": "type",
+      "locator": "primary=visible_text:'Member ID:'",
+      "success": true
+    },
+    {
+      "step_id": 5,
+      "action": "click",
+      "locator": "primary=visible_text:'Search'",
+      "success": true
+    },
+    {
+      "step_id": 6,
+      "action": "verify_checkpoint",
+      "condition": {
+        "type": "text_present",
+        "value": "Member Detail"
+      },
+      "success": false
+    }
+  ],
+  "result": {
+    "status": "business_outcome",
+    "outcome": "member_not_found",
+    "step": 6,
+    "evidence_dir": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/replay_20260917_225615_756102",
+    "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/replay_20260917_225615_756102/final.png"
+  }
+}

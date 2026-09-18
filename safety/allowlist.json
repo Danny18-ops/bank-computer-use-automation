@@ -1,0 +1,11 @@
+{
+  "allowed_domains": ["localhost:5050"],
+  "allowed_routes": [
+    "/login",
+    "/search",
+    "/member/*",
+    "/new-subaccount/*",
+    "/confirmation"
+  ],
+  "allowed_action_types": ["navigate", "click", "type", "select", "verify_checkpoint"]
+}

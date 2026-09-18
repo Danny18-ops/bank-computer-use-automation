@@ -1,0 +1,58 @@
+{
+  "artifact_path": "/tmp/escalation_demo_artifact.json",
+  "artifact_id": "escalation_demo",
+  "inputs": {
+    "username": "tester",
+    "password": "[REDACTED]"
+  },
+  "base_url": "http://localhost:5050",
+  "steps": [
+    {
+      "step_id": 1,
+      "action": "navigate",
+      "target": "/login",
+      "success": true
+    },
+    {
+      "step_id": 2,
+      "action": "type",
+      "locator": "primary=label_text:'Username:'",
+      "success": true
+    },
+    {
+      "step_id": 3,
+      "action": "type",
+      "locator": "primary=label_text:'Password:'",
+      "success": true
+    },
+    {
+      "step_id": 4,
+      "action": "click",
+      "locator": "primary=visible_text:'Login'",
+      "success": true
+    },
+    {
+      "step_id": 5,
+      "action": "click",
+      "locator": "primary=visible_text:'ThisButtonDoesNotExist'",
+      "success": false,
+      "error": "no matching button/link found"
+    },
+    {
+      "step_id": 5,
+      "action": "click",
+      "locator": "primary=visible_text:'ThisButtonDoesNotExist'",
+      "success": false,
+      "error": "no matching button/link found",
+      "intervention_log": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/interventions/20260918_075740_231705/intervention_log.json"
+    }
+  ],
+  "result": {
+    "status": "hard_failure",
+    "step": 5,
+    "message": "Step 5 (click): no button/link found for locator (primary=visible_text:'ThisButtonDoesNotExist')",
+    "screenshot": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/replay_20260918_075738_857309/final.png",
+    "intervention_log": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/interventions/20260918_075740_231705/intervention_log.json",
+    "evidence_dir": "/Users/dnyaneshwariraut/Desktop/computer-use-automation/evidence/replay_20260918_075738_857309"
+  }
+}

@@ -1,0 +1,6 @@
+playwright
+flask
+openai
+pydantic
+pytest
+python-dotenv

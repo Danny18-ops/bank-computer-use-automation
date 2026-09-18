@@ -1,0 +1,14 @@
+<html>
+<head><title>MockBank - Confirmation</title></head>
+<body>
+<h1>MockBank Internal System</h1>
+<h2>Confirmation</h2>
+<p>Sub-account created successfully.</p>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr><td>Reference Number</td><td>{{ reference }}</td></tr>
+<tr><td>Member</td><td>{{ member_name }} (ID {{ member_id }})</td></tr>
+<tr><td>Account Type</td><td>{{ account_type }}</td></tr>
+<tr><td>Initial Deposit</td><td>${{ "%.2f"|format(deposit) }}</td></tr>
+</table>
+</body>
+</html>

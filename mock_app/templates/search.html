@@ -1,0 +1,24 @@
+<html>
+<head><title>MockBank - Member Search</title></head>
+<body>
+<h1>MockBank Internal System</h1>
+<h2>Member Search</h2>
+{% if error %}
+<table border="1" cellpadding="4" cellspacing="0">
+<tr><td>{{ error }}</td></tr>
+</table>
+<br>
+{% endif %}
+<form method="POST" action="/search">
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<td>Member ID:</td>
+<td><input type="text" name="member_id" value="{{ member_id }}"></td>
+</tr>
+<tr>
+<td colspan="2"><button type="submit">Search</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>

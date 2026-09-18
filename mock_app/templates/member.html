@@ -1,0 +1,18 @@
+<html>
+<head><title>MockBank - Member Detail</title></head>
+<body>
+<h1>MockBank Internal System</h1>
+<h2>Member Detail</h2>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr><td>Member ID</td><td>{{ member_id }}</td></tr>
+<tr><td>Name</td><td>{{ member.name }}</td></tr>
+<tr><td>Savings Balance</td><td>${{ "%.2f"|format(member.balance) }}</td></tr>
+</table>
+<br>
+<form method="GET" action="/new-subaccount/{{ member_id }}">
+<table border="0" cellpadding="4" cellspacing="0">
+<tr><td><button type="submit">Open Sub-Account</button></td></tr>
+</table>
+</form>
+</body>
+</html>
